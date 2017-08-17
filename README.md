@@ -6,7 +6,7 @@ Report tool for assisting in evaluations.
 
 1. Run `npm install` or `yarn install`
 2. Start the dev server using `npm start`
-3. Open [http://localhost:8080](http://localhost:7771)
+3. Open [http://localhost:7771](http://localhost:7771)
 
 ## Available Commands
 
