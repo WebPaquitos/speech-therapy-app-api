@@ -35,7 +35,11 @@ const masaSchema = new Schema({
         },
         description: {
             type: String
-        }
+        },
+        id: {
+            type: String,
+            required: 'Please supply a patient id'
+        },
     },
     fields: [
         {

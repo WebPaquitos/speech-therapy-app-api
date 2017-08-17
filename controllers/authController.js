@@ -14,7 +14,7 @@ exports.login = (req, res) => {
             return res.json(err);
         }
         if (!user) {
-            return res.send('No user');
+            return res.status(400).json({message: 'No User'});
         }
         req.logIn(user, function (err) {
             if (err) {

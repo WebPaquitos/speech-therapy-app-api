@@ -429,9 +429,10 @@ exports.save = async (req, res, next) => {
     const fields = req.body.fields;
     req.body.score = fields.reduce((previous, field) => { return previous + Number(field.chosen); }, 0);
     req.body.author = req.user._id;
+    req.body.patient.createdBy = req.user._id;
     try {
         const masa = await (new Masa(req.body)).save();
-        const patient = await patientController.save(req.body.patient);
+        await patientController.save(req.body.patient);
         res.status(201).json(masa);
     }
     catch(e) {
@@ -442,6 +443,6 @@ exports.save = async (req, res, next) => {
 };
 
 exports.masas = async (req, res) => {
-    const masas = await Masa.find({author: req.user._id});
+    const masas = await Masa.find({author: req.user.id});
     res.json(masas);
 };

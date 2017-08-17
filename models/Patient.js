@@ -12,6 +12,15 @@ const patientSchema = new Schema({
         required: 'Please Supply a name',
         trim: true
     },
+    id: {
+        type: String,
+        required: 'Please supply a patient id'
+    },
+    createdBy: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
     description: {
         type: String
     }

@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const Patient = mongoose.model('Patient');
 
 exports.save = async (p) => {
-    console.log('p = ',p );
     try {
-        let patient = await Patient.findOne({ name: p.name });
+        let patient = await Patient.findOne({ id: p.id });
         if (!patient) {
             patient = await (new Patient(p)).save();
         }
@@ -17,6 +16,6 @@ exports.save = async (p) => {
 };
 
 exports.patients = async (req, res) => {
-    const patients = await Patient.find();
+    const patients = await Patient.find({createdBy: req.user._id}, {_id: 0, __v: 0});
     res.json(patients);
 };
