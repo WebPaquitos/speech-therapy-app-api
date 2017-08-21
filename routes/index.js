@@ -19,10 +19,12 @@ router.get('/logout', authController.logout);
 
 // MASA
 router.get('/masa', authController.isLoggedIn, masaController.masaModel);
+router.get('/masas/:id', authController.isLoggedIn, masaController.masaModelById);
 router.get('/masas', catchErrors(masaController.masas));
 router.post('/masa', masaController.save);
 
 // PATIENT
 router.get('/patients', authController.isLoggedIn, catchErrors(patientController.patients));
+router.get('/patients/:id', authController.isLoggedIn, catchErrors(patientController.patient));
 
 module.exports = router;

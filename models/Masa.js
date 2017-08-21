@@ -24,6 +24,12 @@ const masaSchema = new Schema({
     score: {
       type: Number
     },
+    scoreLabelDisfagia: {
+        type: String
+    },
+    scoreLabelAspiracao: {
+        type: String
+    },
     patient: {
         birthdate: {
             type: Date
